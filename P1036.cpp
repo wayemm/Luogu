@@ -50,3 +50,4 @@ void dfs(int m, int sum, int local)
         dfs(m + 1, sum + array[i], i + 1); //递归
     return;
 }
+//当输入三个相同的数  总是全部判断为素数；应该是一个。
