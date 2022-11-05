@@ -1,7 +1,5 @@
 /*
 p1008三连击
-学号：2008010230
-姓名：王鸿浩
 */
 #include <iostream>
 using namespace std;
