@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
-bool Deng(int, int, int);//º¯ÊýÔ­ÐÍÉùÃ÷ 
+bool Deng(int, int, int);//å‡½æ•°åŽŸåž‹å£°æ˜Ž 
 int main()
 {
 	int A = 0, B = 0, C = 0;
-	int count = 0;   //¼ÆÊýÆ÷
+	int count = 0;   //è®¡æ•°å™¨
 	cin >> A >> B >> C;  //A<B<C
 	if (A==0||B==0||C==0)
 	{
 		cout << "No!!!"; 
 		return 0;
-	}//ÅÅ³ýABCÎª0µÄ¿ÉÄÜ 
+	}//æŽ’é™¤ABCä¸º0çš„å¯èƒ½ 
 	for (size_t i = 100/A;C*i<1000; i++)
 	{
 		if (Deng(A * i, B * i, C * i) == true)
@@ -22,7 +22,7 @@ int main()
 			cout << A * i << ' ' << B * i << ' '
 				<< C * i << endl;
 			count++;
-		} //µ±²»´æÔÚ´ð°¸Ê±Êä³öNo!!! 
+		} //å½“ä¸å­˜åœ¨ç­”æ¡ˆæ—¶è¾“å‡ºNo!!! 
 			
 	}
 	if (count==0)
@@ -34,7 +34,7 @@ int main()
 bool Deng(int M, int N, int Q)
 {
 	
-	//·Ö±ð½«9¸öÊý×Ö·ÅÔÚÊý×éÖÐ
+	//åˆ†åˆ«å°†9ä¸ªæ•°å­—æ”¾åœ¨æ•°ç»„ä¸­
 	int array[9] = { 0 };
 	array[0] = M / 100;
 	array[1] = M % 100 / 10;
@@ -50,11 +50,11 @@ bool Deng(int M, int N, int Q)
 	//	if (array[k] == 0)
 	//		return true;
 	//}
-	//ÅÐ¶ÏÊÇ·ñÏàÍ¬
+	//åˆ¤æ–­æ˜¯å¦ç›¸åŒ
 	for (size_t i = 0; i!=9; i++)
 	{
 		for (size_t j = i + 1; j !=9; j++) {
-			if (array[i]==array[j]||array[i] == 0||array[j]==0)
+			if (array[i]==array[j]||array[i] == 0||array[j]==0)   //åˆ¤æ–­æ•°ä½æ˜¯å¦ç›¸åŒï¼Œç›¸åŒåˆ™è¿”å›žtrueï¼ŒæŽ’é™¤æ­¤æƒ…å†µã€‚
 			{
 				return true;
 			}
