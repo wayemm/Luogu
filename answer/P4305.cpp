@@ -1,58 +1,45 @@
-#include<iostream>
-using namespace std;
+/*2008010230
+ÍõºèºÆ*/
 
-// int main()
-// {
-//     int n, L;
-//     int **arr1 = new int *[n];
-//     for (int i = 0; i < n; i++)
-//     {
-//         arr1[i] = new int[L]{};
-//     }
-//     for (int i = 0; i < n; i++)
-//     {
-//         for (int j = 0; j < L; j++)
-//         {
-//             cin>>arr1[i][j];
-//         }
-//         cout << endl;
-//     }
-//     for (int i = 0; i < n; i++)
-//     {
-//         for (int j = 0; j < L; j++)
-//         {
-//             cout << arr1[i][j] << ' ';
-//         }
-//         cout << endl;
-//     }
-//     for (int i = 0; i < n; i++)
-//     {
-//         delete[] arr1[i];
-//     }
-//     delete[] arr1;
-// }
+#include <bits/stdc++.h>
+#define il inline
+using namespace std;
+const int N = 50005;
+int T, n, pos[N];
+struct node
+{
+    int v, id;
+    bool operator<(const node a) const { return v < a.v; }
+    bool operator==(const node a) const { return v == a.v; }
+} a[N];
+il bool cmp(const node &a, const node &b) { return a.id < b.id; }
+il int gi()
+{
+    int a = 0;
+    char x = getchar();
+    bool f = 0;
+    while ((x < '0' || x > '9') && x != '-')
+        x = getchar();
+    if (x == '-')
+        x = getchar(), f = 1;
+    while (x >= '0' && x <= '9')
+        a = a * 10 + x - 48, x = getchar();
+    return f ? -a : a;
+}
 int main()
 {
-    const int size = 10;
-    int j;
-    int *pi = new int[size];
-    int pp[size] = {12, 12, 10, 9, 8, 12, 9, 4, 5, 10};
-
-    for (size_t i = 0; i < size; i++)
+    T = gi();
+    while (T--)
     {
-        /* code */for (size_t j = i; j< size; j++)
-        {
-            
-            if (pp[i]=pp[j])
-            {
-                pp[i] = pi[j];
-                j++;
-            }
-            
-
-        }
-        
+        n = gi();
+        for (int i = 1; i <= n; i++)
+            a[i].v = gi(), a[i].id = i;
+        stable_sort(a + 1, a + n + 1);
+        int m = unique(a + 1, a + n + 1) - a - 1;
+        sort(a + 1, a + m + 1, cmp);
+        for (int i = 1; i <= m; i++)
+            printf("%d ", a[i].v);
+        printf("\n");
     }
-    delete[] pi;
     return 0;
 }
